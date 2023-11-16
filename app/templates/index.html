@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask API Demo</title>
+</head>
+<body>
+    <h1>Flask API Demo</h1>
+    <form method="post" action="/">
+        <label for="user_input">Enter a value:</label>
+        <input type="text" name="user_input" id="user_input" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if data %}
+        <h2>Data for {{ user_input }}:</h2>
+        <ul>
+            {% for item in data %}
+	    	<li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
+
