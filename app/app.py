@@ -12,8 +12,11 @@ def index():
     #if the request is sent using post
     if request.method == 'POST':
         #if we find age in the api:
-        user_input  = int(request.form['user_input'])
-        print(f"received user input: {user_input}")
+        ui_age  = int(request.form['ui_age'])
+        ui_weight = int(request.form['ui_weight'])
+        ui_breed = request.form['ui_breed']
+        ui_gender = request.form['ui_gender']
+        print(f"received user input: {ui_age}, {ui_weight}, {ui_breed}, {ui_gender}")
         #initiate RDS connection
         conn = create_conn()
     
