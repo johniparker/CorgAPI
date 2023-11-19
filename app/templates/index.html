@@ -8,8 +8,26 @@
 <body>
     <h1>Flask API Demo</h1>
     <form method="post" action="/">
-        <label for="user_input">Enter a value:</label>
-        <input type="text" name="user_input" id="user_input" required>
+        <label for="ui_age">Age: </label>
+        <input type="text" name="ui_age" id="ui_age" required>
+        
+        <label for="ui_weight">Weight: </label>
+        <input type="text" name="ui_weight" is="ui_weight" required>
+        
+        <label for="ui_breed">Breed: </label>
+        <select id="ui_breed" name="ui_breed">
+            <option value="pem">Pembroke</option>
+            <option value="cardi">Cardigan</option>
+        </select>
+        
+        <label for="ui_gender">Gender: </label>
+        <select id="ui_gender" name="ui_gender">
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+            <option value="nm">Neutered Male</option>
+            <option value="sf">Spayed Female</option>
+        </select>
+        
         <button type="submit">Submit</button>
     </form>
 
