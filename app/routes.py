@@ -2,6 +2,7 @@ import flask
 from flask import Flask, render_template, request
 import requests
 from CorgAPI.database.rds_conn import create_conn
+from CorgAPI.model.reg_model import predict_racetime
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -23,6 +24,7 @@ def index():
         if conn:
             #call function to process user input
             processed_data = process_data(user_input, conn)
+            estimated_racetime = predict_racetime(user_features)
             conn.close()
             return render_template('index.html', data=processed_data, user_input=user_input)
         else:
