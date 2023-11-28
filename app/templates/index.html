@@ -44,6 +44,7 @@
         {% if predicted_racetime is defined %}
             <div class="result-container">
                 <h2>Predicted Time: {{ predicted_racetime }}</h2>
+                    <p>Your corgi is projected to perform {{over_under}}</p>
                 <div id="corg"></div>
             </div>
         {% endif %}

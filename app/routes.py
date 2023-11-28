@@ -33,9 +33,33 @@ def index():
             'gender': [ui_gender]
         })
         print(f"received user input: {ui_age}, {ui_weight}, {ui_breed}, {ui_gender}")
+        
+        #retrieve average racetime from database
+        conn = create_conn()
+        avg_query = """
+        select avg(racetime)
+        from outcome;
+        """
+        avg_result = pd.read_sql(avg_query, conn)
+        avg_racetime = int(avg_result.values)
+        conn.close()
+        
+        #predict racetime based on user input
         predicted_racetime = predictor.predict_racetime(user_features)
         
-        return render_template('index.html', predicted_racetime=predicted_racetime)
+        #calculate difference between average and prediction
+        diff = predicted_racetime - avg_racetime
+        diff = round(diff, 2)
+        
+        #configure what the user sees
+        if diff > 0:
+            over_under = f"above average by {diff} seconds."
+        elif diff < 0:
+            over_under = f"below average by {abs(diff)} seconds."
+        else:
+            over_under = f"close to average."
+        
+        return render_template('index.html', predicted_racetime=predicted_racetime, over_under=over_under)
     #if get request or another error, render template without data
     return render_template('index.html', data=None, user_input=None, error=None)
 
