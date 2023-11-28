@@ -40,13 +40,13 @@
             
             <button type="submit">Submit</button>
         </form>
-    
-        {% if predicted_racetime is defined %}
-            <h2>Predicted Racetime:</h2>
-            <p>{{ predicted_racetime }}</p>
-        {% endif %}
         
-        <div id="corgs"></div>
+        {% if predicted_racetime is defined %}
+            <div class="result-container">
+                <h2>Predicted Time: {{ predicted_racetime }}</h2>
+                <div id="corg"></div>
+            </div>
+        {% endif %}
     </div>
 </body>
 </html>
