@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask API Demo</title>
+    <title>Corgi Success Predictor</title>
 </head>
 <body>
-    <h1>Flask API Demo</h1>
+    <h1>Corgi Success Predictor</h1>
     <form method="post" action="/">
         <label for="ui_age">Age: </label>
         <input type="text" name="ui_age" id="ui_age" required>
@@ -16,30 +16,24 @@
         
         <label for="ui_breed">Breed: </label>
         <select id="ui_breed" name="ui_breed">
-            <option value="pem">Pembroke</option>
-            <option value="cardi">Cardigan</option>
+            <option value="Pem">Pembroke</option>
+            <option value="Cardi">Cardigan</option>
         </select>
         
         <label for="ui_gender">Gender: </label>
         <select id="ui_gender" name="ui_gender">
-            <option value="m">Male</option>
-            <option value="f">Female</option>
-            <option value="nm">Neutered Male</option>
-            <option value="sf">Spayed Female</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="NM">Neutered Male</option>
+            <option value="SF">Spayed Female</option>
         </select>
         
-        <button type="submit">Submit</button>
+        <button type="submit">Submit!</button>
     </form>
 
-    {% if data %}
-        <h2>Data for {{ user_input }}:</h2>
-        <ul>
-            {% for item in data %}
-	    	<li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-    {% elif error %}
-        <p>{{ error }}</p>
+    {% if predicted_racetime is defined %}
+        <h2>Predicted Racetime:</h2>
+        <p>{{ predicted_racetime }}</p>
     {% endif %}
 </body>
 </html>
