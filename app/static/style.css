@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Ubuntu:wght@300&display=swap");
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #B3EDC7;
+    color: #363636;
+    font-family: Ubuntu, Arial, Sans-serif;
+}
+
+.container {
+    width: 50%;
+}
+
+form {
+    display: grid;
+    grid-gap: .5em;
+    gap: .5em;
+    grid-template-columns: 6em 1fr;
+}
+
+#corgs {
+    height: 200px;
+    width: 200px;
+    background-image: url(images/corgs.png);
+    background-repeat: no-repeat;
+    
+}

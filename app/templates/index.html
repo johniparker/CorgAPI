@@ -2,39 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corgi Success Predictor</title>
+    <meta name="description" content="Corgi Racetime Predictor" />
+    <meta name="author" content="John Parker"/>
+    <link rel="stylesheet" href="static/style.css"/>
 </head>
 <body>
-    <h1>Corgi Success Predictor</h1>
-    <form method="post" action="/">
-        <label for="ui_age">Age: </label>
-        <input type="text" name="ui_age" id="ui_age" required>
+    <div class="container">
+        <h1>Corgi Success Predictor</h1>
+            <p>
+                Welcome to the Corgi Success Predictor! Enter your Corgi's
+                information to see how fast your corgi is expected to run
+                a 150-foot race!
+            </p>
+        <form method="post" action="/">
+            <label for="ui_age">Age: </label>
+            <input type="text" name="ui_age" id="ui_age" required>
+            
+            <label for="ui_weight">Weight: </label>
+            <input type="text" name="ui_weight" is="ui_weight" required>
+            
+            <label for="ui_breed">Breed: </label>
+            <select id="ui_breed" name="ui_breed">
+                <option value="Pem">Pembroke</option>
+                <option value="Cardi">Cardigan</option>
+            </select>
+            
+            <label for="ui_gender">Gender: </label>
+            <select id="ui_gender" name="ui_gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="NM">Neutered Male</option>
+                <option value="SF">Spayed Female</option>
+            </select>
+            
+            <button type="submit">Submit</button>
+        </form>
+    
+        {% if predicted_racetime is defined %}
+            <h2>Predicted Racetime:</h2>
+            <p>{{ predicted_racetime }}</p>
+        {% endif %}
         
-        <label for="ui_weight">Weight: </label>
-        <input type="text" name="ui_weight" is="ui_weight" required>
-        
-        <label for="ui_breed">Breed: </label>
-        <select id="ui_breed" name="ui_breed">
-            <option value="Pem">Pembroke</option>
-            <option value="Cardi">Cardigan</option>
-        </select>
-        
-        <label for="ui_gender">Gender: </label>
-        <select id="ui_gender" name="ui_gender">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-            <option value="NM">Neutered Male</option>
-            <option value="SF">Spayed Female</option>
-        </select>
-        
-        <button type="submit">Submit!</button>
-    </form>
-
-    {% if predicted_racetime is defined %}
-        <h2>Predicted Racetime:</h2>
-        <p>{{ predicted_racetime }}</p>
-    {% endif %}
+        <div id="corgs"></div>
+    </div>
 </body>
 </html>
 
