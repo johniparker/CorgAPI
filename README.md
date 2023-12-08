@@ -5,6 +5,6 @@ In this project, I built a custom web application from scratch, leveraging AWS c
 
 I demonstrate my abilities across the software stack, from database development to web design.
 
-This repository serves almost as an intro to software development. I learned a lot about code reusability, object-oriented design, and package management.
+This repository serves as my intro to software development. My key takeaways involve code reusability, object-oriented design, and package management.
 
 
